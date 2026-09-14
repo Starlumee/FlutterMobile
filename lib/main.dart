@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'pricing_card.dart'; // Mengimpor file komponen kartu
+import 'screens/home_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,31 +11,21 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Layanan IT',
+      title: 'Katalog Layanan IT',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(primarySwatch: Colors.blue),
-      home: const PricingScreen(),
-    );
-  }
-}
-
-class PricingScreen extends StatelessWidget {
-  const PricingScreen({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Paket Layanan IT'),
-        backgroundColor: Colors.blue,
-        foregroundColor: Colors.white,
-        elevation: 0,
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: Colors.blue,
+          primary: Colors.blue[700]!,
+        ),
+        useMaterial3: true,
+        appBarTheme: AppBarTheme(
+          backgroundColor: Colors.blue[700],
+          foregroundColor: Colors.white,
+          centerTitle: false,
+        ),
       ),
-      backgroundColor: Colors.grey[100],
-      body: const Center(
-        // Memanggil kartu harga yang dibuat di file terpisah
-        child: TieredPricingCard(),
-      ),
+      home: const HomeScreen(),
     );
   }
 }
